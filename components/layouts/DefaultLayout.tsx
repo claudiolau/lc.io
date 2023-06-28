@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren } from 'react'
 
 export const DefaultLayout: FC<PropsWithChildren> = ({ children }) => {
-  return <div className="flex justify-center items-center">{children}</div>;
-};
+    return <div className="flex min-h-screen flex-col ">{children}</div>
+}
