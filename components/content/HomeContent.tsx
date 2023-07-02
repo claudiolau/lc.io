@@ -5,7 +5,7 @@ import { FC } from 'react'
 export const HomeContent: FC = ({}) => {
     return (
         <SpacingLayout>
-            <h2 className="">hey, I am claudio 🙌</h2>
+            <h2>hey, I am claudio 🙌</h2>
 
             <p className="tracking-wide">
                 I'm a frontend wizard, a fervent believer in the power of
