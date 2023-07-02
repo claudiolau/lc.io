@@ -19,7 +19,7 @@ export default function RootLayout({
             <body
                 className={clsx(
                     inter.className,
-                    `mx-4 mb-40 mt-8 flex max-w-2xl flex-col antialiased md:flex-row lg:mx-auto`
+                    `mx-auto flex max-w-2xl flex-col antialiased md:items-center md:justify-center lg:mx-auto`
                 )}
             >
                 {children}

@@ -2,8 +2,8 @@ import * as React from 'react'
 
 export const LoblawsLogo = () => (
     <svg
-        width="13"
-        height="11"
+        width="10"
+        height="10"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="mr-1 inline-flex"
