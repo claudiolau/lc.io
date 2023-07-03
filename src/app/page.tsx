@@ -1,3 +1,5 @@
+'use client'
+
 import { ArticleLayout } from '@components/layouts/ArticleLayout'
 import { HomeContent } from '@components/content/HomeContent'
 import { Footer } from '@components/footer'
