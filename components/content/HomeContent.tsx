@@ -1,15 +1,16 @@
-import { LoblawsLogo } from '@components/assets/Loblaws'
 import { SpacingLayout } from '@components/layouts'
 import { FC } from 'react'
 import Image from 'next/image'
-interface Size {
+import { LoblawsLogo } from '@components/assets'
+
+type Size = {
     width: number
     height: number
 }
 
 const ImageComponent = ({ width, height }: Size) => {
     return (
-        <div className="my-8 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-x-8">
+        <div className="my-8 grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 sm:gap-x-8">
             <Image
                 src="/1.jpeg"
                 width={width}
@@ -59,8 +60,8 @@ const ImageComponent = ({ width, height }: Size) => {
 export const HomeContent: FC = ({}) => {
     return (
         <SpacingLayout>
-            <h2>hey, I am claudio 🙌</h2>
-            <p className="tracking-wide">
+            <h2>Hey, I am Claudio 🙌</h2>
+            <p className="pt-2 tracking-wide">
                 I'm a frontend wizard, a fervent believer in the power of
                 pixels. I thrive on crafting digital experiences at
                 <span className="m-2">

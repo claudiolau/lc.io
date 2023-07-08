@@ -2,11 +2,12 @@ import * as React from 'react'
 
 export const LoblawsLogo = () => (
     <svg
-        width="10"
-        height="10"
+        width="12"
+        height="12"
+        viewBox="0 0 12 12"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="mr-1 inline-flex"
+        className="mr-2 inline-flex"
     >
         <path
             d="M1185.556 674.63h-9.192c-13.522.266-12.815-11.224-12.815-11.224v-9.898h-15.997v15.865c0 2.209 2.077 21.344 21.962 21.344h16.042V674.63"
