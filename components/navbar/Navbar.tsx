@@ -39,7 +39,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="fade relative mt-8 flex scroll-pr-6 flex-row items-start px-0 pb-0 pt-4 md:relative md:overflow-auto"
+            className="relative mt-8 flex scroll-pr-6 flex-row items-start px-0 pb-0 pt-4 md:relative md:overflow-auto"
             id="nav"
         >
             <div className="flex flex-row pr-10">

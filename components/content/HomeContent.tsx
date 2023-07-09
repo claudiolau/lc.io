@@ -7,14 +7,12 @@ import { ReactIcon } from '@components/assets/ReactIcon'
 import { Prisma } from '@components/skill/Prisma'
 import { Typescript } from '@components/skill/Typescript'
 
-export const HomeContent: FC = ({}) => {
+export const HomeContent: FC = () => {
     return (
         <SpacingLayout>
-            <h1 className=" pb-4 pt-4 text-2xl font-bold">
-                Hey, I am Claudio 🙌
-            </h1>
-            <p className="pb-8 pt-8 font-light tracking-wide">
-                I'm a frontend wizard, a fervent believer in the power of
+            <h1 className=" py-4 text-2xl font-bold">Hey, I am Claudio 🙌</h1>
+            <p className="py-8 font-light tracking-wide">
+                I am a frontend wizard, a fervent believer in the power of
                 pixels. I thrive on crafting digital experiences at
                 <span className="m-2">
                     <a
@@ -30,7 +28,7 @@ export const HomeContent: FC = ({}) => {
                 <a
                     href="https://nextjs.org"
                     target="_blank"
-                    className=" ml-2  mr-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                    className=" mx-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                 >
                     <svg
                         width="12"

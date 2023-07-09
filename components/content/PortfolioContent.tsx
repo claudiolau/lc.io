@@ -1,5 +1,4 @@
 import { SpacingLayout } from '@components/layouts'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
@@ -28,9 +27,9 @@ export const PortfolioContent = () => {
     return (
         <SpacingLayout>
             <div className="mx-auto">
-                <div className="pb-8 pt-8 font-light tracking-wide">
-                    <div className="pb-2 pt-2">
-                        I'm a frontend wizard, a fervent believer in the power
+                <div className="py-8 font-light tracking-wide">
+                    <div className="py-2">
+                        I am a frontend wizard, a fervent believer in the power
                         of pixels. I thrive on crafting digital experiences at
                     </div>
                     {isLoading ? (
@@ -44,9 +43,7 @@ export const PortfolioContent = () => {
                                 <div className="grid-item" key={index}>
                                     {isLoading ? (
                                         <div className="max-w-sm rounded shadow-lg">
-                                            <div className="loader">
-                                                Loading...
-                                            </div>{' '}
+                                            <div>Loading...</div>{' '}
                                             {/* Replace with your loading spinner */}
                                         </div>
                                     ) : (

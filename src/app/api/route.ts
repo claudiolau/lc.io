@@ -1,5 +1,3 @@
-import { NextRequest, NextResponse } from 'next/server'
-
 type IRepoMetaData = {
     name: string
     description: string
@@ -17,7 +15,7 @@ const fetchPublicRepositories = async (username: string) => {
         const repositories = await response.json()
 
         return repositories.map(
-            ({ name, description, html_url, image }: IRepoMetaData) => ({
+            ({ name, description, html_url }: IRepoMetaData) => ({
                 name,
                 description,
                 image: `https://opengraph.githubassets.com/1/${username}/${name}`,
@@ -29,14 +27,22 @@ const fetchPublicRepositories = async (username: string) => {
         throw error
     }
 }
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
     try {
         const username = process.env.NEXT_PUBLIC_GithubOwner
         if (!username) throw new Error('Environment name not found')
         const data = await fetchPublicRepositories(username)
         // Set Access-Control-Allow-Headers header
-        res.headers.set('Access-Control-Allow-Headers', 'Content-Type')
-        return NextResponse.json(data)
+
+        return new Response(data, {
+            status: 200,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods':
+                    'GET, POST, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+            },
+        })
     } catch (error) {
         console.error(error)
     }
