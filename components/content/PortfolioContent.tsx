@@ -22,16 +22,16 @@ export const PortfolioContent = () => {
                             if (!response.ok)
                                 throw new Error('Failed to fetch repositories.')
 
-                            const repositories = await response.json()
+                            const repositories = (await response.json()).map(
+                                ({ name, description, html_url }: any) => ({
+                                    name,
+                                    description,
+                                    image: `https://opengraph.githubassets.com/1/${username}/${name}`,
+                                    url: html_url,
+                                })
+                            )
                             setData(repositories)
                             // return repositories.map(
-                            //     ({ name, description, html_url }: any) => ({
-                            //         name,
-                            //         description,
-                            //         image: `https://opengraph.githubassets.com/1/${username}/${name}`,
-                            //         url: html_url,
-                            //     })
-                            // )
                         } catch (error) {
                             console.error(error)
                             throw error
