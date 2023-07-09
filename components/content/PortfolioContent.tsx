@@ -11,14 +11,38 @@ export const PortfolioContent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api', {
-                    method: 'GET',
-                    mode: 'cors',
-                })
-                const jsonData = await response.json()
-                console.log(jsonData)
-                setData(jsonData)
-                setIsLoading(false) // Update loading state
+                const fetchPublicRepositories = async () =>
+                    // username: string | null
+                    {
+                        try {
+                            const response = await fetch(
+                                `https://api.github.com/users/claudiolau/repos`
+                            )
+
+                            if (!response.ok)
+                                throw new Error('Failed to fetch repositories.')
+
+                            const repositories = await response.json()
+                            setData(repositories)
+                            return repositories.map(
+                                ({ name, description, html_url }: any) => ({
+                                    name,
+                                    description,
+                                    image: `https://opengraph.githubassets.com/1/${username}/${name}`,
+                                    url: html_url,
+                                })
+                            )
+                        } catch (error) {
+                            console.error(error)
+                            throw error
+                        }
+                    }
+                fetchPublicRepositories()
+                console.log(data)
+                // const jsonData = fetchPublicRepositories as any
+
+                // setData(jsonData)
+                // setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
                 throw new Error('Fetch missing')
