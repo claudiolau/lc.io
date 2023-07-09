@@ -26,7 +26,7 @@ export const PortfolioContent = () => {
                                 ({ name, description, html_url }: any) => ({
                                     name,
                                     description,
-                                    image: `https://opengraph.githubassets.com/1/${username}/${name}`,
+                                    image: `https://opengraph.githubassets.com/1/claudiolau/${name}`,
                                     url: html_url,
                                 })
                             )
