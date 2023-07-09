@@ -11,7 +11,10 @@ export const PortfolioContent = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:3000/api')
+                const response = await fetch('http://localhost:3000/api', {
+                    method: 'GET',
+                    mode: 'cors',
+                })
                 const jsonData = await response.json()
                 console.log(jsonData)
                 setData(jsonData)
