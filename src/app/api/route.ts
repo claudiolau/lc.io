@@ -34,6 +34,8 @@ export async function GET(req: NextRequest, res: NextResponse) {
         const username = process.env.NEXT_PUBLIC_GithubOwner
         if (!username) throw new Error('Environment name not found')
         const data = await fetchPublicRepositories(username)
+        // Set Access-Control-Allow-Headers header
+        res.headers.set('Access-Control-Allow-Headers', 'Content-Type')
         return NextResponse.json(data)
     } catch (error) {
         console.error(error)
