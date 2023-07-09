@@ -56,7 +56,7 @@ export const PortfolioContent = () => {
                                                     alt={x.name}
                                                 />
                                             </Link>
-                                            <div className="mb-2 mt-2">
+                                            <div className="my-2">
                                                 <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
                                                     {x.description}
                                                 </span>
