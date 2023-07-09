@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
 type IRepoMetaData = {
     name: string
@@ -28,16 +28,6 @@ const fetchPublicRepositories = async (username: string) => {
         console.error(error)
         throw error
     }
-}
-
-export async function middleware(request: NextRequest) {
-    const response = NextResponse.next()
-    // add cors to every request
-    if (request.nextUrl.pathname) {
-        console.log(request.nextUrl.pathname)
-        response.headers.append('Access-Control-Allow-Origin', '*')
-    }
-    return response
 }
 
 export async function GET() {
