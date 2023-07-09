@@ -6,7 +6,7 @@ export const GithubIcon = () => (
             type="button"
             data-te-ripple-init
             data-te-ripple-color="light"
-            className="mb-2 inline-block rounded bg-[#333] px-2 py-1 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+            className="rounded bg-[#333] px-2 py-1 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
         >
             <svg
                 xmlns="http://www.w3.org/2000/svg"

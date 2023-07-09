@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 type INavLink = {
@@ -8,8 +9,8 @@ type INavLink = {
 
 const navigationLinks: INavLink[] = [
     { text: 'home', href: '/' },
-    { text: 'project', href: '/project' },
-    { text: 'contact', href: '/contact' },
+    { text: 'portfolio', href: '/portfolio' },
+    // { text: 'contact', href: '/contact' },
 ]
 
 export const Navbar = () => {
@@ -43,13 +44,13 @@ export const Navbar = () => {
         >
             <div className="flex flex-row pr-10">
                 {navigationLinks.map((link, index) => (
-                    <a
+                    <Link
                         key={index}
                         className="flex align-middle transition-all hover:text-neutral-800 dark:hover:text-neutral-200"
                         href={link.href}
                     >
                         {activeLink(link)}
-                    </a>
+                    </Link>
                 ))}
             </div>
         </nav>
