@@ -8,7 +8,8 @@ type IRepoMetaData = {
 const fetchPublicRepositories = async (username: string) => {
     try {
         const response = await fetch(
-            `https://api.github.com/users/${username}/repos`
+            `https://api.github.com/users/${username}/repos`,
+            { mode: 'cors' }
         )
 
         if (!response.ok) throw new Error('Failed to fetch repositories.')
