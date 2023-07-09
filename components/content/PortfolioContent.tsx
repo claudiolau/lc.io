@@ -38,18 +38,14 @@ export const PortfolioContent = () => {
                         }
                     }
                 fetchPublicRepositories()
-                console.log(data)
-                // const jsonData = fetchPublicRepositories as any
-
-                // setData(jsonData)
-                // setIsLoading(false) // Update loading state
+                setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
                 throw new Error('Fetch missing')
             }
         }
         fetchData()
-    }, [])
+    }, [data])
 
     return (
         <SpacingLayout>
@@ -61,13 +57,13 @@ export const PortfolioContent = () => {
                     </div>
                     {isLoading ? (
                         <div className="mt-8 flex justify-center">
-                            <div className="loader">Loading...</div>{' '}
+                            <div>Loading...</div>{' '}
                             {/* Replace with your loading spinner */}
                         </div>
                     ) : (
                         <div className="my-8 grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 sm:gap-x-8">
                             {data?.map((x: GitData, index: number) => (
-                                <div className="grid-item" key={index}>
+                                <div key={index}>
                                     {isLoading ? (
                                         <div className="max-w-sm rounded shadow-lg">
                                             <div>Loading...</div>{' '}
