@@ -24,14 +24,14 @@ export const PortfolioContent = () => {
 
                             const repositories = await response.json()
                             setData(repositories)
-                            return repositories.map(
-                                ({ name, description, html_url }: any) => ({
-                                    name,
-                                    description,
-                                    image: `https://opengraph.githubassets.com/1/${username}/${name}`,
-                                    url: html_url,
-                                })
-                            )
+                            // return repositories.map(
+                            //     ({ name, description, html_url }: any) => ({
+                            //         name,
+                            //         description,
+                            //         image: `https://opengraph.githubassets.com/1/${username}/${name}`,
+                            //         url: html_url,
+                            //     })
+                            // )
                         } catch (error) {
                             console.error(error)
                             throw error
