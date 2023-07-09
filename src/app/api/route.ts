@@ -4,7 +4,6 @@ type IRepoMetaData = {
     name: string
     description: string
     html_url: string
-    image: string
 }
 const fetchPublicRepositories = async (username: string) => {
     try {
@@ -17,7 +16,7 @@ const fetchPublicRepositories = async (username: string) => {
         const repositories = await response.json()
 
         return repositories.map(
-            ({ name, description, html_url, image }: IRepoMetaData) => ({
+            ({ name, description, html_url }: IRepoMetaData) => ({
                 name,
                 description,
                 image: `https://opengraph.githubassets.com/1/${username}/${name}`,
