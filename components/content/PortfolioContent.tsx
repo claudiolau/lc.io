@@ -3,21 +3,15 @@ import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-type GitData = any
-// type Repo = {
-//     name: string
-//     stargazers_count: number
-// }
-// export const getStaticProps: GetStaticProps<{
-//     repo: Repo
-// }> = async () => {
-//     const res = await fetch('https://api.github.com/repos/vercel/next.js')
-//     const repo = await res.json()
-//     return { props: { repo } }
-// }
+type IGitData = {
+    name: string
+    description: string
+    image: string
+    url: string
+}
 
 export const PortfolioContent = () => {
-    const [data, setData] = useState<GitData[]>()
+    const [data, setData] = useState<IGitData[]>()
     const [isLoading, setIsLoading] = useState(true) // Added loading state
 
     useEffect(() => {
@@ -26,41 +20,47 @@ export const PortfolioContent = () => {
                 const fetchPublicRepositories = async () =>
                     // username: string | null
                     {
-                        const accessToken =
-                            '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'
+                        const accessToken = {
+                            githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+                            gitToken: process.env.NEXT_PUBLIC_GitToken,
+                        }
+                        console.log(accessToken)
                         const headers = {
-                            Authorization: `${accessToken}`,
+                            Authorization: `${accessToken.gitToken}`,
                         }
 
                         try {
                             const response = await fetch(
-                                `https://api.github.com/users/claudiolau/repos`,
+                                `https://api.github.com/users/${accessToken.githubOwner}/repos`,
                                 { headers }
                             )
-                            console.log(response)
 
                             if (!response.ok)
                                 throw new Error('Failed to fetch repositories.')
 
                             const repositories = await response.json()
 
-                            const augementData = repositories.map(
-                                ({ name, description, html_url }: any) => ({
+                            const augmentData = repositories.map(
+                                ({
                                     name,
                                     description,
-                                    image: `https://opengraph.githubassets.com/1/claudiolau/${name}`,
+                                    html_url,
+                                }: IGitData) => ({
+                                    name,
+                                    description,
+                                    image: `https://opengraph.githubassets.com/1/${accessToken.githubOwner}/${name}`,
                                     url: html_url,
                                 })
                             )
-                            console.log(augementData)
-                            setData(augementData)
+
+                            setData(augmentData)
                         } catch (error) {
                             console.error(error)
                             throw error
                         }
                     }
+
                 fetchPublicRepositories()
-                // // setData(jsonData)
                 setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -85,7 +85,7 @@ export const PortfolioContent = () => {
                         </div>
                     ) : (
                         <div className="my-8 grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 sm:gap-x-8">
-                            {data?.map((x: GitData, index: number) => (
+                            {data?.map((x: IGitData, index: number) => (
                                 <div key={index}>
                                     {isLoading ? (
                                         <div className="max-w-sm rounded shadow-lg">
