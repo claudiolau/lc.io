@@ -1,5 +1,5 @@
 import { SpacingLayout } from '@components/layouts'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
