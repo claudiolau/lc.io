@@ -2,12 +2,13 @@ import { SpacingLayout } from '@components/layouts'
 
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 
 type IGitData = {
     name: string
     description: string
     image: string
-    url: string
+    html_url: string
 }
 
 export const PortfolioContent = () => {
@@ -49,7 +50,7 @@ export const PortfolioContent = () => {
                                     name,
                                     description,
                                     image: `https://opengraph.githubassets.com/1/${accessToken.githubOwner}/${name}`,
-                                    url: html_url,
+                                    html_url: html_url,
                                 })
                             )
 
@@ -94,8 +95,8 @@ export const PortfolioContent = () => {
                                         </div>
                                     ) : (
                                         <div className="rounded">
-                                            <Link href={x.url}>
-                                                <img
+                                            <Link href={x.html_url}>
+                                                <Image
                                                     width={350}
                                                     height={500}
                                                     src={x.image}
