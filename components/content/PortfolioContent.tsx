@@ -1,8 +1,20 @@
 import { SpacingLayout } from '@components/layouts'
+import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
 type GitData = any
+// type Repo = {
+//     name: string
+//     stargazers_count: number
+// }
+// export const getStaticProps: GetStaticProps<{
+//     repo: Repo
+// }> = async () => {
+//     const res = await fetch('https://api.github.com/repos/vercel/next.js')
+//     const repo = await res.json()
+//     return { props: { repo } }
+// }
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<GitData[]>()
@@ -17,7 +29,7 @@ export const PortfolioContent = () => {
                         const accessToken =
                             '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'
                         const headers = {
-                            Authorization: `Bearer ${accessToken}`,
+                            Authorization: `${accessToken}`,
                         }
 
                         try {
@@ -25,6 +37,7 @@ export const PortfolioContent = () => {
                                 `https://api.github.com/users/claudiolau/repos`,
                                 { headers }
                             )
+                            console.log(response)
 
                             if (!response.ok)
                                 throw new Error('Failed to fetch repositories.')
