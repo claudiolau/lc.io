@@ -14,15 +14,24 @@ export const PortfolioContent = () => {
                 const fetchPublicRepositories = async () =>
                     // username: string | null
                     {
+                        const accessToken =
+                            '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'
+                        const headers = {
+                            Authorization: `Bearer ${accessToken}`,
+                        }
+
                         try {
                             const response = await fetch(
-                                `https://api.github.com/users/claudiolau/repos`
+                                `https://api.github.com/users/claudiolau/repos`,
+                                { headers }
                             )
 
                             if (!response.ok)
                                 throw new Error('Failed to fetch repositories.')
 
-                            const repositories = (await response.json()).map(
+                            const repositories = await response.json()
+
+                            const augementData = repositories.map(
                                 ({ name, description, html_url }: any) => ({
                                     name,
                                     description,
@@ -30,14 +39,15 @@ export const PortfolioContent = () => {
                                     url: html_url,
                                 })
                             )
-                            setData(repositories)
-                            // return repositories.map(
+                            console.log(augementData)
+                            setData(augementData)
                         } catch (error) {
                             console.error(error)
                             throw error
                         }
                     }
                 fetchPublicRepositories()
+                // // setData(jsonData)
                 setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
@@ -45,7 +55,7 @@ export const PortfolioContent = () => {
             }
         }
         fetchData()
-    }, [data])
+    }, [])
 
     return (
         <SpacingLayout>
@@ -75,7 +85,7 @@ export const PortfolioContent = () => {
                                                 <img
                                                     width={350}
                                                     height={500}
-                                                    src={String(x.image)}
+                                                    src={x.image}
                                                     alt={x.name}
                                                 />
                                             </Link>
