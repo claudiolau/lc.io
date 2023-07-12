@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, Suspense } from 'react'
 import { LoblawsLogo } from '@components/assets'
 import { ImageComponent } from './ImageComponent'
 import { SpacingLayout } from '@components/layouts'
@@ -6,11 +6,12 @@ import { Frontend } from '@components/skill/Frontend'
 import { ReactIcon } from '@components/assets/ReactIcon'
 import { Prisma } from '@components/skill/Prisma'
 import { Typescript } from '@components/skill/Typescript'
+import Link from 'next/link'
 
 export const HomeContent: FC = () => {
     return (
         <SpacingLayout>
-            <h1 className=" py-4 text-2xl font-bold">Hey, I am Claudio 🙌</h1>
+            <h1 className=" py-2 text-2xl font-bold">Hey, I am Claudio 🙌</h1>
             <p className="py-8 font-light tracking-wide">
                 I am a frontend wizard, a fervent believer in the power of
                 pixels. I thrive on crafting digital experiences at
@@ -49,21 +50,34 @@ export const HomeContent: FC = () => {
                 <a
                     href="https://react.dev"
                     target="_blank"
-                    className="ml-2 mr-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                    className="mx-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                 >
                     <ReactIcon />
                     React
                 </a>
                 .
             </p>
-
             <ImageComponent width={350} height={500} />
-
             <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
                 <Frontend />
                 <Prisma />
                 <Typescript />
             </div>
+
+            <span className="m-2">
+                <div className="my-8 flex flex-row space-x-2 overflow-x-auto font-light tracking-wide">
+                    Simplify communication, drop me a line at
+                    <Link
+                        href={`mailto:${process.env.NEXT_PUBLIC_Mail}`}
+                        className={
+                            'ml-2 text-neutral-500 underline hover:text-black'
+                        }
+                    >
+                        {process.env.NEXT_PUBLIC_Mail}
+                    </Link>
+                </div>
+                Or Browse me
+            </span>
         </SpacingLayout>
     )
 }

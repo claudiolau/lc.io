@@ -1,5 +1,4 @@
 import { SpacingLayout } from '@components/layouts'
-
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
