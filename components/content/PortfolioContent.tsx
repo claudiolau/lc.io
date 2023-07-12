@@ -75,8 +75,9 @@ export const PortfolioContent = () => {
             <div className="mx-auto">
                 <div className="py-8 font-light tracking-wide">
                     <div className="py-2">
-                        I am a frontend wizard, a fervent believer in the power
-                        of pixels. I thrive on crafting digital experiences at
+                        Behold, fellow knowledge seekers, for I present to you a
+                        curated collection of awe-inspiring repositories that
+                        are sure to ignite your coding passions!
                     </div>
                     {isLoading ? (
                         <div className="mt-8 flex justify-center">

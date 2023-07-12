@@ -39,20 +39,18 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="relative mt-8 flex scroll-pr-6 flex-row items-start px-0 pb-0 pt-4 md:relative md:overflow-auto"
+            className="mt-8 flex flex-row items-center justify-start px-0 pb-0 pt-4 md:relative md:overflow-auto"
             id="nav"
         >
-            <div className="flex flex-row pr-10">
-                {navigationLinks.map((link, index) => (
-                    <Link
-                        key={index}
-                        className="flex align-middle transition-all hover:text-neutral-800 dark:hover:text-neutral-200"
-                        href={link.href}
-                    >
-                        {activeLink(link)}
-                    </Link>
-                ))}
-            </div>
+            {navigationLinks.map((link, index) => (
+                <Link
+                    key={index}
+                    className="flex align-middle transition-all hover:text-neutral-800 dark:hover:text-neutral-200"
+                    href={link.href}
+                >
+                    {activeLink(link)}
+                </Link>
+            ))}
         </nav>
     )
 }
