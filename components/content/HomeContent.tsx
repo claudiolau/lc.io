@@ -65,7 +65,7 @@ export const HomeContent: FC = () => {
             </div>
 
             <span className="m-2">
-                <div className="my-8 flex flex-row space-x-2 overflow-x-auto font-light tracking-wide">
+                <div className="my-8 font-light tracking-wide">
                     Simplify communication, drop me a line at
                     <a
                         href={`mailto:${process.env.NEXT_PUBLIC_Mail}`}
