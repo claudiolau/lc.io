@@ -1,4 +1,4 @@
-import { FC, Suspense } from 'react'
+import { FC } from 'react'
 import { LoblawsLogo } from '@components/assets'
 import { ImageComponent } from './ImageComponent'
 import { SpacingLayout } from '@components/layouts'
@@ -16,17 +16,17 @@ export const HomeContent: FC = () => {
                 I am a frontend wizard, a fervent believer in the power of
                 pixels. I thrive on crafting digital experiences at
                 <span className="m-2">
-                    <a
+                    <Link
                         href="https://www.loblaws.ca/"
                         target="_blank"
                         className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                     >
                         <LoblawsLogo /> Loblaws
-                    </a>
+                    </Link>
                 </span>
                 where I supercharge retail operations with our SaaS-based
                 inventory and price optimization tool. Powered by
-                <a
+                <Link
                     href="https://nextjs.org"
                     target="_blank"
                     className=" mx-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
@@ -45,16 +45,16 @@ export const HomeContent: FC = () => {
                         />
                     </svg>
                     Next.js
-                </a>
+                </Link>
                 an open-source web framework built with
-                <a
+                <Link
                     href="https://react.dev"
                     target="_blank"
                     className="mx-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                 >
                     <ReactIcon />
                     React
-                </a>
+                </Link>
                 .
             </p>
             <ImageComponent width={350} height={500} />
@@ -80,7 +80,7 @@ export const HomeContent: FC = () => {
                     Embark on an exhilarating journey through the captivating
                     pages of my meticulously crafted
                     <span className="m-2">
-                        <a
+                        <Link
                             href="https://www.loblaws.ca/"
                             target="_blank"
                             className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
@@ -92,7 +92,7 @@ export const HomeContent: FC = () => {
                             >
                                 curriculum vitae
                             </Link>
-                        </a>
+                        </Link>
                     </span>
                 </p>
             </span>
