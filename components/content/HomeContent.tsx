@@ -16,17 +16,17 @@ export const HomeContent: FC = () => {
                 I am a frontend wizard, a fervent believer in the power of
                 pixels. I thrive on crafting digital experiences at
                 <span className="m-2">
-                    <Link
+                    <a
                         href="https://www.loblaws.ca/"
                         target="_blank"
                         className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                     >
                         <LoblawsLogo /> Loblaws
-                    </Link>
+                    </a>
                 </span>
                 where I supercharge retail operations with our SaaS-based
                 inventory and price optimization tool. Powered by
-                <Link
+                <a
                     href="https://nextjs.org"
                     target="_blank"
                     className=" mx-2 inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
@@ -45,7 +45,7 @@ export const HomeContent: FC = () => {
                         />
                     </svg>
                     Next.js
-                </Link>
+                </a>
                 an open-source web framework built with
                 <Link
                     href="https://react.dev"
@@ -67,32 +67,26 @@ export const HomeContent: FC = () => {
             <span className="m-2">
                 <div className="my-8 flex flex-row space-x-2 overflow-x-auto font-light tracking-wide">
                     Simplify communication, drop me a line at
-                    <Link
+                    <a
                         href={`mailto:${process.env.NEXT_PUBLIC_Mail}`}
                         className={
                             'ml-2 text-neutral-500 underline hover:text-black'
                         }
                     >
                         {process.env.NEXT_PUBLIC_Mail}
-                    </Link>
+                    </a>
                 </div>
                 <p className=" font-light tracking-wide">
                     Embark on an exhilarating journey through the captivating
                     pages of my meticulously crafted
                     <span className="m-2">
-                        <Link
-                            href="https://www.loblaws.ca/"
-                            target="_blank"
-                            className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                        <a
+                            href="/Claudio_Lau.pdf"
+                            download
+                            className="text-blue-500"
                         >
-                            <Link
-                                href="/Claudio_Lau.pdf"
-                                download
-                                className="text-blue-500"
-                            >
-                                curriculum vitae
-                            </Link>
-                        </Link>
+                            curriculum vitae
+                        </a>
                     </span>
                 </p>
             </span>
