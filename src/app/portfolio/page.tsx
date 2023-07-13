@@ -1,17 +1,17 @@
 'use client'
 
-import { ArticleLayout } from '@components/layouts/ArticleLayout'
-import { HomeContent } from '@components/content/HomeContent'
+import { PortfolioContent } from '@components/content/PortfolioContent'
 import { Footer } from '@components/footer'
-import { Navbar } from '@components/navbar'
 import { FlexGrowLayout } from '@components/layouts'
+import { ArticleLayout } from '@components/layouts/ArticleLayout'
+import { Navbar } from '@components/navbar'
 
-export default function Home() {
+export default function Page() {
     return (
         <ArticleLayout>
             <FlexGrowLayout>
                 <Navbar />
-                <HomeContent />
+                <PortfolioContent />
             </FlexGrowLayout>
             <Footer />
         </ArticleLayout>
