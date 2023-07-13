@@ -76,7 +76,25 @@ export const HomeContent: FC = () => {
                         {process.env.NEXT_PUBLIC_Mail}
                     </Link>
                 </div>
-                Or Browse me
+                <p className=" font-light tracking-wide">
+                    Embark on an exhilarating journey through the captivating
+                    pages of my meticulously crafted
+                    <span className="m-2">
+                        <a
+                            href="https://www.loblaws.ca/"
+                            target="_blank"
+                            className="inline-flex items-center rounded border border-neutral-200 bg-neutral-50 p-1 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                        >
+                            <Link
+                                href="/Claudio_Lau.pdf"
+                                download
+                                className="text-blue-500"
+                            >
+                                curriculum vitae
+                            </Link>
+                        </a>
+                    </span>
+                </p>
             </span>
         </SpacingLayout>
     )

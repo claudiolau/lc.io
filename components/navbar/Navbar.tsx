@@ -10,7 +10,7 @@ type INavLink = {
 const navigationLinks: INavLink[] = [
     { text: 'home', href: '/' },
     { text: 'portfolio', href: '/portfolio' },
-    { text: 'cv', href: '/cv' },
+    // { text: 'cv', href: '/cv' },
 ]
 
 export const Navbar = () => {
