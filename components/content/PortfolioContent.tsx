@@ -24,7 +24,7 @@ export const PortfolioContent = () => {
                             githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
                             gitToken: process.env.NEXT_PUBLIC_GitToken,
                         }
-                        console.log(accessToken)
+
                         const headers = {
                             Authorization: `${accessToken.gitToken}`,
                         }
