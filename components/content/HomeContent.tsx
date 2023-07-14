@@ -58,11 +58,6 @@ export const HomeContent: FC = () => {
                 .
             </p>
             <ImageComponent width={350} height={500} />
-            <div className="my-8 flex h-14 w-full flex-row space-x-2 overflow-x-auto">
-                <Frontend />
-                <Prisma />
-                <Typescript />
-            </div>
 
             <span className="m-2">
                 <div className="my-8 font-light tracking-wide">

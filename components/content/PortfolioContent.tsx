@@ -12,53 +12,47 @@ type IGitData = {
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
-    const [isLoading, setIsLoading] = useState(true) // Added loading state
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const fetchPublicRepositories = async () =>
-                    // username: string | null
-                    {
-                        const accessToken = {
-                            githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-                            gitToken: process.env.NEXT_PUBLIC_GitToken,
-                        }
-
-                        const headers = {
-                            Authorization: `${accessToken.gitToken}`,
-                        }
-
-                        try {
-                            const response = await fetch(
-                                `https://api.github.com/users/${accessToken.githubOwner}/repos`,
-                                { headers }
-                            )
-
-                            if (!response.ok)
-                                throw new Error('Failed to fetch repositories.')
-
-                            const repositories = await response.json()
-
-                            const augmentData = repositories.map(
-                                ({
-                                    name,
-                                    description,
-                                    html_url,
-                                }: IGitData) => ({
-                                    name,
-                                    description,
-                                    image: `https://opengraph.githubassets.com/1/${accessToken.githubOwner}/${name}`,
-                                    html_url: html_url,
-                                })
-                            )
-
-                            setData(augmentData)
-                        } catch (error) {
-                            console.error(error)
-                            throw error
-                        }
+                const fetchPublicRepositories = async () => {
+                    const accessToken = {
+                        githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+                        gitToken: process.env.NEXT_PUBLIC_GitToken,
                     }
+
+                    const headers = {
+                        Authorization: `${accessToken.gitToken}`,
+                    }
+
+                    try {
+                        const response = await fetch(
+                            `https://api.github.com/users/${accessToken.githubOwner}/repos`,
+                            { headers }
+                        )
+
+                        if (!response.ok)
+                            throw new Error('Failed to fetch repositories.')
+
+                        const repositories = await response.json()
+
+                        const augmentData = repositories.map(
+                            ({ name, description, html_url }: IGitData) => ({
+                                name,
+                                description,
+                                image: `https://opengraph.githubassets.com/1/${accessToken.githubOwner}/${name}`,
+                                html_url: html_url,
+                            })
+                        )
+
+                        setData(augmentData)
+                    } catch (error) {
+                        console.error(error)
+                        throw error
+                    }
+                }
 
                 fetchPublicRepositories()
                 setIsLoading(false) // Update loading state
