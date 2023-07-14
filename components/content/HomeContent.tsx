@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { LoblawsLogo } from '@components/assets'
-import { ImageComponent } from './ImageComponent'
 import { SpacingLayout } from '@components/layouts'
 import { Frontend } from '@components/skill/Frontend'
 import { ReactIcon } from '@components/assets/ReactIcon'
 import { Prisma } from '@components/skill/Prisma'
 import { Typescript } from '@components/skill/Typescript'
 import Link from 'next/link'
+import { ImageComponent } from '@components/image-grid'
 
 export const HomeContent: FC = () => {
     return (

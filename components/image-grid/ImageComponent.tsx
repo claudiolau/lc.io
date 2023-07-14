@@ -5,7 +5,11 @@ type Size = {
     width: number
     height: number
 }
-export default function BlurImage({ image, width, height }: any) {
+export default function BlurImage({
+    image,
+    width,
+    height,
+}: Size & { image: string }) {
     const [isLoading, setLoading] = useState(true)
     const classNameBlur = `duration-700 ease-in-out group-hover:opacity-75
     ${
@@ -14,18 +18,16 @@ export default function BlurImage({ image, width, height }: any) {
             : 'scale-100 blur-0 grayscale-0'
     })`
     return (
-        <a href={image.href} className="group">
-            <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                <Image
-                    alt=""
-                    src={image}
-                    className={classNameBlur}
-                    onLoadingComplete={() => setLoading(false)}
-                    width={width}
-                    height={height}
-                />
-            </div>
-        </a>
+        <div className="w-full overflow-hidden rounded-lg bg-gray-200">
+            <Image
+                alt=""
+                src={image}
+                className={classNameBlur}
+                onLoadingComplete={() => setLoading(false)}
+                width={width}
+                height={height}
+            />
+        </div>
     )
 }
 export const ImageComponent = ({ width, height }: Size) => {

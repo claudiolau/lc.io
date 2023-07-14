@@ -2,6 +2,7 @@ import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import BlurImage from '@components/image-grid/ImageComponent'
 
 type IGitData = {
     name: string
@@ -85,7 +86,7 @@ export const PortfolioContent = () => {
                             {/* Replace with your loading spinner */}
                         </div>
                     ) : (
-                        <div className="my-8 grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 sm:gap-x-8">
+                        <div className="my-8 grid grid-cols-3 gap-4 py-4 sm:gap-x-8">
                             {data?.map((x: IGitData, index: number) => (
                                 <div key={index}>
                                     {isLoading ? (
@@ -96,11 +97,10 @@ export const PortfolioContent = () => {
                                     ) : (
                                         <div className="rounded">
                                             <Link href={x.html_url}>
-                                                <Image
+                                                <BlurImage
                                                     width={350}
-                                                    height={500}
-                                                    src={x.image}
-                                                    alt={x.name}
+                                                    height={350}
+                                                    image={x.image}
                                                 />
                                             </Link>
                                             <div className="my-2">
