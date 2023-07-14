@@ -1,12 +1,12 @@
 import { FC } from 'react'
 import { LoblawsLogo } from '@components/assets'
-import { ImageComponent } from './ImageComponent'
 import { SpacingLayout } from '@components/layouts'
 import { Frontend } from '@components/skill/Frontend'
 import { ReactIcon } from '@components/assets/ReactIcon'
 import { Prisma } from '@components/skill/Prisma'
 import { Typescript } from '@components/skill/Typescript'
 import Link from 'next/link'
+import { ImageComponent } from '@components/image-grid'
 
 export const HomeContent: FC = () => {
     return (
@@ -65,7 +65,7 @@ export const HomeContent: FC = () => {
             </div>
 
             <span className="m-2">
-                <div className="my-8 flex flex-row space-x-2 overflow-x-auto font-light tracking-wide">
+                <div className="my-8 font-light tracking-wide">
                     Simplify communication, drop me a line at
                     <a
                         href={`mailto:${process.env.NEXT_PUBLIC_Mail}`}

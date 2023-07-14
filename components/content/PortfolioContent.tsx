@@ -1,7 +1,7 @@
 import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+import BlurImage from '@components/image-grid/ImageComponent'
 
 type IGitData = {
     name: string
@@ -79,41 +79,33 @@ export const PortfolioContent = () => {
                         curated collection of awe-inspiring repositories that
                         are sure to ignite your coding passions!
                     </div>
-                    {isLoading ? (
-                        <div className="mt-8 flex justify-center">
-                            <div>Loading...</div>{' '}
-                            {/* Replace with your loading spinner */}
-                        </div>
-                    ) : (
-                        <div className="my-8 grid grid-cols-2 gap-4 py-4 sm:grid-cols-3 sm:gap-x-8">
-                            {data?.map((x: IGitData, index: number) => (
-                                <div key={index}>
-                                    {isLoading ? (
-                                        <div className="max-w-sm rounded shadow-lg">
-                                            <div>Loading...</div>{' '}
-                                            {/* Replace with your loading spinner */}
+
+                    <div className="my-8 grid grid-cols-3 gap-4 py-4 sm:gap-x-8">
+                        {data?.map((x: IGitData, index: number) => (
+                            <div key={index}>
+                                {isLoading ? (
+                                    <div className="max-w-sm rounded shadow-lg">
+                                        <div>Loading...</div>{' '}
+                                    </div>
+                                ) : (
+                                    <div className="rounded">
+                                        <Link href={x.html_url}>
+                                            <BlurImage
+                                                width={350}
+                                                height={350}
+                                                image={x.image}
+                                            />
+                                        </Link>
+                                        <div className="my-2">
+                                            <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
+                                                {x.description}
+                                            </span>
                                         </div>
-                                    ) : (
-                                        <div className="rounded">
-                                            <Link href={x.html_url}>
-                                                <Image
-                                                    width={350}
-                                                    height={500}
-                                                    src={x.image}
-                                                    alt={x.name}
-                                                />
-                                            </Link>
-                                            <div className="my-2">
-                                                <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                                                    {x.description}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    )}
+                                    </div>
+                                )}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </SpacingLayout>
