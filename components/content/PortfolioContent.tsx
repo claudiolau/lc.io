@@ -45,7 +45,7 @@ export const PortfolioContent = () => {
                         const response = await fetch(
                             'http://localhost:3000/api',
                             {
-                                mode: 'cors',
+                                mode: 'no-cors',
                                 headers: {
                                     'Content-Type': 'application/json',
                                 },
