@@ -1,7 +1,6 @@
 import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import BlurImage from '@components/image-grid/ImageComponent'
 
 type IGitData = {
     name: string
@@ -9,45 +8,45 @@ type IGitData = {
     image: string
     html_url: string
 }
+// const accessToken = {
+//     githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+//     gitToken: process.env.NEXT_PUBLIC_GitToken,
+// } as const
+
+// const headers = {
+//     Authorization: `${accessToken.gitToken}`,
+// } as const
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
-    const [isLoading, setIsLoading] = useState(true)
+    // const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const fetchPublicRepositories = async () => {
-                    const accessToken = {
-                        githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-                        gitToken: process.env.NEXT_PUBLIC_GitToken,
-                    }
-
-                    const headers = {
-                        Authorization: `${accessToken.gitToken}`,
-                    }
-
                     try {
-                        const response = await fetch(
-                            `https://api.github.com/users/${accessToken.githubOwner}/repos`,
-                            { headers }
+                        // const response = await fetch(
+                        //     `https://api.github.com/users/${accessToken.githubOwner}/repos`,
+                        //     { headers }
+                        // )
+
+                        // let backUpdata
+                        // if (!response.ok) {
+                        //     backUpdata = await fetch(
+                        //         'http://localhost:3000/api'
+                        //     )
+                        // }
+
+                        // const repoData = response.ok
+                        //     ? await response.json()
+                        //     : backUpdata
+
+                        const backUpdata = await fetch(
+                            'http://localhost:3000/api'
                         )
-
-                        if (!response.ok)
-                            throw new Error('Failed to fetch repositories.')
-
-                        const repositories = await response.json()
-
-                        const augmentData = repositories.map(
-                            ({ name, description, html_url }: IGitData) => ({
-                                name,
-                                description,
-                                image: `https://opengraph.githubassets.com/1/${accessToken.githubOwner}/${name}`,
-                                html_url: html_url,
-                            })
-                        )
-
-                        setData(augmentData)
+                        const repoData = await backUpdata.json()
+                        setData(repoData)
                     } catch (error) {
                         console.error(error)
                         throw error
@@ -55,7 +54,7 @@ export const PortfolioContent = () => {
                 }
 
                 fetchPublicRepositories()
-                setIsLoading(false) // Update loading state
+                // setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
                 throw new Error('Fetch missing')
@@ -74,29 +73,17 @@ export const PortfolioContent = () => {
                         are sure to ignite your coding passions!
                     </div>
 
-                    <div className="my-8 grid grid-cols-3 gap-4 py-4 sm:gap-x-8">
+                    <div className="my-8 grid grid-cols-2 gap-8 py-4 sm:gap-x-8">
                         {data?.map((x: IGitData, index: number) => (
                             <div key={index}>
-                                {isLoading ? (
-                                    <div className="max-w-sm rounded shadow-lg">
-                                        <div>Loading...</div>{' '}
-                                    </div>
-                                ) : (
-                                    <div className="rounded">
-                                        <Link href={x.html_url}>
-                                            <BlurImage
-                                                width={350}
-                                                height={350}
-                                                image={x.image}
-                                            />
-                                        </Link>
-                                        <div className="my-2">
-                                            <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10">
-                                                {x.description}
-                                            </span>
-                                        </div>
-                                    </div>
-                                )}
+                                <div className="my-8 flex flex-col rounded">
+                                    <Link href={x.html_url}>{x.name}</Link>
+                                    <span className="text-blue-700 ring-blue-700/10">
+                                        <span className="inline-flex  rounded-md bg-blue-50 px-2 py-1 text-xs font-medium ">
+                                            {x.description}
+                                        </span>
+                                    </span>
+                                </div>
                             </div>
                         ))}
                     </div>

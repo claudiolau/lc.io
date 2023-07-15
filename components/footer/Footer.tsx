@@ -11,8 +11,8 @@ export const Footer: FC = () => {
                         <LinkedinIcon />
                         <GithubIcon />
                     </div>
-                    <p className="text-right text-neutral-400">
-                        Designed by lc.io
+                    <p className="text-right text-sm text-neutral-400">
+                        Copyright © LC CO., Ltd. All rights reserved.
                     </p>
                 </div>
             </div>
