@@ -8,14 +8,14 @@ type IGitData = {
     image: string
     html_url: string
 }
-// const accessToken = {
-//     githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-//     gitToken: process.env.NEXT_PUBLIC_GitToken,
-// } as const
+const accessToken = {
+    githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+    gitToken: process.env.NEXT_PUBLIC_GitToken,
+} as const
 
-// const headers = {
-//     Authorization: `${accessToken.gitToken}`,
-// } as const
+const headers = {
+    Authorization: `${accessToken.gitToken}`,
+} as const
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
@@ -26,30 +26,25 @@ export const PortfolioContent = () => {
             try {
                 const fetchPublicRepositories = async () => {
                     try {
-                        // const response = await fetch(
-                        //     `https://api.github.com/users/${accessToken.githubOwner}/repos`,
-                        //     { headers }
-                        // )
-
-                        // let backUpdata
-                        // if (!response.ok) {
-                        //     backUpdata = await fetch(
-                        //         'http://localhost:3000/api'
-                        //     )
-                        // }
-
-                        // const repoData = response.ok
-                        //     ? await response.json()
-                        //     : backUpdata
-
-                        const backUpdata = await fetch(
-                            'http://localhost:3000/api'
+                        const response = await fetch(
+                            `https://api.github.com/users/${accessToken.githubOwner}/repos`,
+                            { headers }
                         )
-                        const repoData = await backUpdata.json()
+
+                        let backUpdata
+                        if (!response.ok) {
+                            backUpdata = await fetch(
+                                'http://localhost:3000/api'
+                            )
+                        }
+
+                        const repoData = response.ok
+                            ? await response.json()
+                            : backUpdata
+
                         setData(repoData)
                     } catch (error) {
                         console.error(error)
-                        throw error
                     }
                 }
 
