@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-    images: {
-        domains: ['opengraph.githubassets.com'],
-    },
+    // images: {
+    //     domains: ['opengraph.githubassets.com'],
+    // },
 
     async headers() {
         return [
