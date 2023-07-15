@@ -1,4 +1,3 @@
-import { NextResponse } from 'next/server'
 import github from './github.json'
 
 export async function GET() {
@@ -6,7 +5,7 @@ export async function GET() {
         const username = process.env.NEXT_PUBLIC_GithubOwner
         if (!username) throw new Error('Environment name not found')
 
-        return NextResponse.json(github)
+        return github
     } catch (error) {
         console.error(error)
     }
