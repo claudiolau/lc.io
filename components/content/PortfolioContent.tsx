@@ -43,8 +43,7 @@ export const PortfolioContent = () => {
                         //     : backUpdata
 
                         const response = await fetch(
-                            `${process.env.NEXTAUTH_URL}/api` ||
-                                'http://localhost:3000/api',
+                            new URL('http://localhost:3000/api'),
                             {
                                 method: 'GET',
                                 headers: {
@@ -57,7 +56,7 @@ export const PortfolioContent = () => {
                             throw new Error(`Error! status: ${response.status}`)
                         }
                         const repoData = await response.json()
-
+                        console.log(repoData)
                         setData(repoData)
                     } catch (error) {
                         console.error(error)
