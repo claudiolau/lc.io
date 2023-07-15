@@ -1,10 +1,9 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-
 import github from './github.json'
+import type { NextApiResponse } from 'next'
 
 const fetchPublicRepositories = github
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(res: NextApiResponse) {
     try {
         const username = process.env.NEXT_PUBLIC_GithubOwner
         if (!username) throw new Error('Environment name not found')
