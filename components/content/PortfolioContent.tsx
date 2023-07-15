@@ -42,10 +42,18 @@ export const PortfolioContent = () => {
                         //     ? await response.json()
                         //     : backUpdata
 
-                        const backUpdata = await fetch(
-                            'http://localhost:3000/api'
+                        const response = await fetch(
+                            'http://localhost:3000/api',
+                            {
+                                mode: 'cors',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                method: 'GET',
+                            }
                         )
-                        const repoData = await backUpdata.json()
+                        if (!response.ok) console.log(response)
+                        const repoData = await response.json()
                         setData(repoData)
                     } catch (error) {
                         console.error(error)
