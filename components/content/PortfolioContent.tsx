@@ -45,19 +45,20 @@ export const PortfolioContent = () => {
                         const response = await fetch(
                             'http://localhost:3000/api',
                             {
-                                mode: 'no-cors',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
                                 method: 'GET',
+                                headers: {
+                                    accept: 'application/json',
+                                },
                             }
                         )
-                        if (!response.ok) console.log(response)
+                        if (!response.ok) {
+                            throw new Error(`Error! status: ${response.status}`)
+                        }
                         const repoData = await response.json()
+                        console.log(repoData)
                         setData(repoData)
                     } catch (error) {
                         console.error(error)
-                        throw error
                     }
                 }
 
