@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.js
+module.exports = {
     async headers() {
         return [
             {
@@ -21,5 +22,3 @@ const nextConfig = {
         ]
     },
 }
-
-module.exports = nextConfig

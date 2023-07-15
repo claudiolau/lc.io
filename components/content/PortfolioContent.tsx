@@ -52,10 +52,11 @@ export const PortfolioContent = () => {
                             }
                         )
                         if (!response.ok) {
+                            console.log(response)
                             throw new Error(`Error! status: ${response.status}`)
                         }
                         const repoData = await response.json()
-                        console.log(repoData)
+
                         setData(repoData)
                     } catch (error) {
                         console.error(error)
