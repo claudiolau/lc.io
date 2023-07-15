@@ -4,6 +4,7 @@ module.exports = {
     async headers() {
         return [
             {
+                appDir: true,
                 // matching all API routes
                 source: '/api/:path*',
                 headers: [
