@@ -10,27 +10,20 @@ type IGitData = {
     image: string
     html_url: string
 }
-// const accessToken = {
-//     githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-//     gitToken: process.env.NEXT_PUBLIC_GitToken,
-// } as const
-
-// const headers = {
-//     Authorization: `${accessToken.gitToken}`,
-// } as const
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
-    // const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const fetchPublicRepositories = async () => {
+                    const baseUrl = new URL(
+                        process.env.NEXT_PUBLIC_URL + '/api'
+                    )
+
                     try {
-                        const response = await fetch(
-                            `${process.env.NEXT_PUBLIC_URL}/api`
-                        )
+                        const response = await fetch(baseUrl.href)
                         const repoData = await response.json()
 
                         setData(repoData)
