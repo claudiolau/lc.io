@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server'
-import github from './github.json'
+// import { NextResponse } from 'next/server'
+// import github from './github.json'
 
 export async function GET() {
     try {
