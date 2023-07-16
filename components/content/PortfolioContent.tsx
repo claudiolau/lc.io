@@ -29,7 +29,7 @@ export const PortfolioContent = () => {
                 const fetchPublicRepositories = async () => {
                     try {
                         const response = await fetch(
-                            `http://localhost:3000/api`,
+                            `https://lc-io-git-feat-cors-testing-claudiolau.vercel.app/api`,
                             { headers }
                         )
 
