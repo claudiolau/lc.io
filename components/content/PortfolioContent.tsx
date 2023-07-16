@@ -10,14 +10,14 @@ type IGitData = {
     image: string
     html_url: string
 }
-const accessToken = {
-    githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-    gitToken: process.env.NEXT_PUBLIC_GitToken,
-} as const
+// const accessToken = {
+//     githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+//     gitToken: process.env.NEXT_PUBLIC_GitToken,
+// } as const
 
-const headers = {
-    Authorization: `${accessToken.gitToken}`,
-} as const
+// const headers = {
+//     Authorization: `${accessToken.gitToken}`,
+// } as const
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
@@ -29,17 +29,8 @@ export const PortfolioContent = () => {
                 const fetchPublicRepositories = async () => {
                     try {
                         const response = await fetch(
-                            `https://lc-io-git-feat-cors-testing-claudiolau.vercel.app/api`,
-                            { headers }
+                            `${process.env.NEXT_PUBLIC_URL}/api`
                         )
-
-                        // let backUpdata
-                        // if (!response.ok) {
-                        //     backUpdata = await fetch(
-                        //         'http://localhost:3000/api'
-                        //     )
-                        // }
-
                         const repoData = await response.json()
 
                         setData(repoData)
