@@ -1,3 +1,5 @@
+'use client'
+
 import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -27,20 +29,18 @@ export const PortfolioContent = () => {
                 const fetchPublicRepositories = async () => {
                     try {
                         const response = await fetch(
-                            `https://api.github.com/users/${accessToken.githubOwner}/repos`,
+                            `http://localhost:3000/api`,
                             { headers }
                         )
 
-                        let backUpdata
-                        if (!response.ok) {
-                            backUpdata = await fetch(
-                                'http://localhost:3000/api'
-                            )
-                        }
+                        // let backUpdata
+                        // if (!response.ok) {
+                        //     backUpdata = await fetch(
+                        //         'http://localhost:3000/api'
+                        //     )
+                        // }
 
-                        const repoData = response.ok
-                            ? await response.json()
-                            : backUpdata
+                        const repoData = await response.json()
 
                         setData(repoData)
                     } catch (error) {
