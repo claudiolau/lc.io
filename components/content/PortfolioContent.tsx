@@ -18,12 +18,16 @@ export const PortfolioContent = () => {
         const fetchData = async () => {
             try {
                 const fetchPublicRepositories = async () => {
-                    const baseUrl = new URL(
-                        process.env.NEXT_PUBLIC_URL + '/api'
-                    )
+                    const baseUrl = new URL(window.location.origin + '/api')
 
                     try {
-                        const response = await fetch(baseUrl.href)
+                        const response = await fetch(baseUrl.href, {
+                            mode: 'cors',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            method: 'GET',
+                        })
                         const repoData = await response.json()
 
                         setData(repoData)
