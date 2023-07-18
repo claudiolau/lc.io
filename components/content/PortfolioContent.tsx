@@ -1,3 +1,5 @@
+'use client'
+
 import { SpacingLayout } from '@components/layouts'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -8,39 +10,25 @@ type IGitData = {
     image: string
     html_url: string
 }
-const accessToken = {
-    githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
-    gitToken: process.env.NEXT_PUBLIC_GitToken,
-} as const
-
-const headers = {
-    Authorization: `${accessToken.gitToken}`,
-} as const
 
 export const PortfolioContent = () => {
     const [data, setData] = useState<IGitData[]>()
-    // const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const fetchPublicRepositories = async () => {
+                    const baseUrl = new URL(window.location.origin + '/api')
+
                     try {
-                        const response = await fetch(
-                            `https://api.github.com/users/${accessToken.githubOwner}/repos`,
-                            { headers }
-                        )
-
-                        let backUpdata
-                        if (!response.ok) {
-                            backUpdata = await fetch(
-                                'http://localhost:3000/api'
-                            )
-                        }
-
-                        const repoData = response.ok
-                            ? await response.json()
-                            : backUpdata
+                        const response = await fetch(baseUrl.href, {
+                            mode: 'cors',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            method: 'GET',
+                        })
+                        const repoData = await response.json()
 
                         setData(repoData)
                     } catch (error) {
