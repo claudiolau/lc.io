@@ -5,7 +5,6 @@ type IRepoMetaData = {
     name: string
     description: string
     html_url: string
-    image: string
 }
 const fetchPublicRepositories = async (username: string) => {
     try {
