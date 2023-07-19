@@ -12,7 +12,7 @@ export const Footer: FC = () => {
                         <GithubIcon />
                     </div>
                     <p className="text-right text-sm text-neutral-400">
-                        Copyright © LC CO., Ltd. All rights reserved.
+                        Copyright © LC CO., Ltd
                     </p>
                 </div>
             </div>
