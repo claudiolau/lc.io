@@ -39,6 +39,8 @@ export async function GET() {
         const gitOwner =
             (process.env && process.env.NEXT_PUBLIC_GithubOwner) || ''
         const data = await fetchPublicRepositories(gitOwner)
+
+        console.log(data)
         const augmentData =
             data ||
             github.map((x) => ({

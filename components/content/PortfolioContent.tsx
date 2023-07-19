@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react'
 type IGitData = {
     name: string
     description: string
-    image: string
-    html_url: string
+    url: string
 }
 
 export const PortfolioContent = () => {
@@ -21,13 +20,22 @@ export const PortfolioContent = () => {
                     const baseUrl = new URL(window.location.origin + '/api')
 
                     try {
+                        const accessToken = {
+                            githubOwner: process.env.NEXT_PUBLIC_GithubOwner,
+                            gitToken: process.env.NEXT_PUBLIC_GitToken,
+                        }
+
+                        const auth = {
+                            Authorization: `${accessToken.gitToken}`,
+
+                            'Content-Type': 'application/json',
+                        }
                         const response = await fetch(baseUrl.href, {
                             mode: 'cors',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
+                            ...auth,
                             method: 'GET',
                         })
+
                         const repoData = await response.json()
 
                         setData(repoData)
@@ -37,7 +45,6 @@ export const PortfolioContent = () => {
                 }
 
                 fetchPublicRepositories()
-                // setIsLoading(false) // Update loading state
             } catch (error) {
                 console.error('Error fetching data:', error)
                 throw new Error('Fetch missing')
@@ -60,7 +67,8 @@ export const PortfolioContent = () => {
                         {data?.map((x: IGitData, index: number) => (
                             <div key={index}>
                                 <div className="my-8 flex flex-col rounded">
-                                    <Link href={x.html_url}>{x.name}</Link>
+                                    <Link href={x.url}>{x.name}</Link>
+
                                     <span className="text-blue-700 ring-blue-700/10">
                                         <span className="inline-flex  rounded-md bg-blue-50 px-2 py-1 text-xs font-medium ">
                                             {x.description}
