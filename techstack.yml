@@ -1,7 +1,8 @@
 repo_name: claudiolau/lc.io
-report_id: 6a5f04b826c4b7941048286648ac6a0e
+report_id: d8858e30b91ebbcff4550b45288d4bfd
+version: 0.1
 repo_type: Public
-timestamp: '2023-12-14T10:22:35+00:00'
+timestamp: '2024-01-05T08:52:13+00:00'
 requested_by: claudiolau
 provider: github
 branch: main
@@ -15,6 +16,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/6727/css.png
+  detection_source_url: https://github.com/claudiolau/lc.io
   detection_source: Repo Metadata
 - name: JavaScript
   description: Lightweight, interpreted, object-oriented language with first-class
@@ -25,6 +27,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source_url: https://github.com/claudiolau/lc.io
   detection_source: Repo Metadata
 - name: TypeScript
   description: A superset of JavaScript that compiles to clean JavaScript output
@@ -35,6 +38,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Languages
   image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source_url: https://github.com/claudiolau/lc.io
   detection_source: Repo Metadata
 - name: Autoprefixer
   description: PostCSS plugin to parse CSS and add vendor prefixes to CSS rules
@@ -44,6 +48,7 @@ tools:
   category: Languages & Frameworks
   sub_category: CSS Pre-processors / Extensions
   image_url: https://img.stackshare.io/service/2202/72d087642cfce6fef6f2dabec5bf49e8_400x400.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-06-28 01:03:23.000000000 Z
@@ -69,6 +74,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Frameworks (Full Stack)
   image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-06-22 13:28:15.000000000 Z
@@ -81,6 +87,7 @@ tools:
   category: Languages & Frameworks
   sub_category: CSS Pre-processors / Extensions
   image_url: https://img.stackshare.io/service/3339/rlFcjEdI.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-06-22 13:28:15.000000000 Z
@@ -107,6 +114,7 @@ tools:
   category: Languages & Frameworks
   sub_category: Front-End Frameworks
   image_url: https://img.stackshare.io/service/8158/default_660b7c41c3ba489cb581eec89c04655404258c19.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-07-15 17:41:41.000000000 Z
@@ -119,6 +127,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Code Review
   image_url: https://img.stackshare.io/service/3337/Q4L7Jncy.jpg
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-06-22 13:28:15.000000000 Z
@@ -130,6 +139,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Version Control System
   image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/claudiolau/lc.io
   detection_source: Repo Metadata
 - name: Prettier
   description: 'Prettier is an opinionated code formatter. '
@@ -153,6 +163,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Front End Package Manager
   image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-06-22 13:28:15.000000000 Z
@@ -162,6 +173,7 @@ tools:
   open_source: false
   hosted_saas: false
   image_url: https://img.stackshare.io/service/48327/default_e1e547104832f8e187369b19e928e17a8be5020b.png
+  detection_source_url: https://github.com/claudiolau/lc.io/blob/main/package.json
   detection_source: package.json
   last_updated_by: Claudio Lau
   last_updated_on: 2023-07-15 17:41:41.000000000 Z
